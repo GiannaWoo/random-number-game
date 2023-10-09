@@ -1,19 +1,30 @@
+const setNumberValue = document.querySelector("#setnumber");
+const guessNumberInput = document.querySelector("#quessnumber");
+const playBtn = document.querySelector("#playbtn");
 
-
-const setNumberValue = document.querySelector("#setnumber input")
-setNumberValue.addEventListener("input", fsetNumber);
-
-const guessNumberValue = document.querySelector("#guessnumber input")
-
-
-function fsetNumber() {
+//숫자 범위 설정하기
+function setNumberRange() {
     const value = setNumberInput.value;
-    const savedNumber = localStorage("generate", setNumberInput.value)
-    return value;
+
 }
 
-//특정값을 입력하면 0부터 특정값까지의 정수로 구성된 array 만들기
-//해당 어레이에서 랜덤 숫자 하나 선택
-//랜덤 숫자와 유저 입력값 비교 => 같으면 "You won!", 다르면 "You lost!"
-//form / queryselector / preventdefault() / Math.ceil() / parseInt() / innerHTML
+//Play 클릭 이벤트
+function guessNumber() {
+    const userGuess = parseInt(guessNumberInput.value);
+    if (isNaN(userGuess) || userGuess < 0) {
+        alert("0이상의 숫자를 입력해주세요");
+    } else if (userGuess === randomNumber) {
+        const message = document.createElement("p")
+        document.body.appendChild(message);
+        message.innerText = "You won!";
 
+    } else { message.innerText = "You lost!" }
+}
+
+//랜덤 숫자 만들기
+function randomNumber(number) {
+    return Math.ceil(Math.random() * number)
+}
+
+//플레이 버튼 클릭 시 이벤트 리스너
+playBtn.addEventListener("click", guessNumber);
