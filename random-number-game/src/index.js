@@ -1,6 +1,10 @@
 
-const setNumberInput = document.querySelector("#setnumber input")
-setNumberInput.addEventListener("input", fsetNumber);
+
+const setNumberValue = document.querySelector("#setnumber input")
+setNumberValue.addEventListener("input", fsetNumber);
+
+const guessNumberValue = document.querySelector("#guessnumber input")
+
 
 function fsetNumber() {
     const value = setNumberInput.value;
