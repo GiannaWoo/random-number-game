@@ -5,21 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla Challenge</title>
   </head>
-  <body>
+  <!-- <body>
     <h1>Random Number Game</h1>
     <form action="" method="get">
-      <!--최대 범위 숫자 설정-->
+      
       <div>
-        <label> Generate a number between 0 and: </label>
-        <input type="number" id="setnumber" required />
+        <label>
+          Generate a number between 0 and:
+          <input type="number" id="setnumber" required
+        /></label>
       </div>
-      <!--숫자 맞추기 입력-->
+      
       <div>
-        <label> Guess the number: </label>
-        <input type="number" id="guessnumber" required />
+        <label>
+          Guess the number: <input type="number" id="guessnumber" required
+        /></label>
         <input type="submit" id="playbtn" value="Play!" />
       </div>
     </form>
     <script src="src/index.js"></script>
+  </body> -->
+  <body>
+    <h1>Number Guessing Game</h1>
+    <div id="rangeForm">
+      <p>
+        0에서 <span id="maxRange">10</span>까지의 숫자 중 하나를 선택하세요.
+      </p>
+      <label for="userMaxRange">최대 범위 설정:</label>
+      <input type="number" id="userMaxRange" min="1" required />
+      <button onclick="setRange()">설정</button>
+    </div>
+    <div id="guessForm" style="display: none">
+      <p>
+        0에서 <span id="currentMaxRange">10</span>까지의 숫자 중 하나를
+        선택하세요.
+      </p>
+      <input type="number" id="userGuess" min="0" required />
+      <button onclick="playGame()">Play</button>
+    </div>
+    <p id="resultMessage"></p>
+
+    <script src="script.js"></script>
   </body>
 </html>
